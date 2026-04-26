@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Pentester Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Courier New', monospace;
+            color: #e0e0e0;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Back button */
+        .back-btn {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            padding: 8px 20px;
+            margin-bottom: 40px;
+            text-decoration: none;
+            font-family: monospace;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #00ff41;
+            color: #0a0a0a;
+        }
+
+        /* Content styling */
+        h1 {
+            color: #00ff41;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-family: monospace;
+        }
+
+        h2 {
+            color: #00ff41;
+            font-size: 1.3rem;
+            margin: 30px 0 15px 0;
+            font-family: monospace;
+            border-left: 3px solid #00ff41;
+            padding-left: 15px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            background: #111;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 5px 12px;
+            margin: 5px;
+            font-size: 0.85rem;
+            font-family: monospace;
+            color: #00ff41;
+        }
+
+        .cert {
+            margin: 10px 0;
+            padding: 10px;
+            background: #0d0d0d;
+            border-left: 2px solid #00ff41;
+        }
+
+        .cert strong {
+            color: #00ff41;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #222;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #00ff41;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 15px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-btn">← BACK</a>
+
+        <h1>📄 ABOUT</h1>
+
+        <div class="section">
+            <h2>$ whoami</h2>
+            <p>I'm <strong>[Your Name]</strong>, a penetration tester and security researcher focused on finding vulnerabilities before adversaries do. I believe in responsible disclosure and building a more secure digital world.</p>
+        </div>
+
+        <div class="section">
+            <h2>⚡ CORE SKILLS</h2>
+            <div>
+                <span class="skill-tag">Network Pentesting</span>
+                <span class="skill-tag">Web App Security</span>
+                <span class="skill-tag">Active Directory</span>
+                <span class="skill-tag">Python/Bash Scripting</span>
+                <span class="skill-tag">Social Engineering</span>
+                <span class="skill-tag">Wireless Attacks</span>
+            </div>
+            <br>
+            <div>
+                <span class="skill-tag">Nmap</span>
+                <span class="skill-tag">Burp Suite</span>
+                <span class="skill-tag">Metasploit</span>
+                <span class="skill-tag">BloodHound</span>
+                <span class="skill-tag">Wireshark</span>
+                <span class="skill-tag">Impacket</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎓 CERTIFICATIONS</h2>
+            <div class="cert">
+                <strong>OSCP</strong> - Offensive Security Certified Professional (2024)
+            </div>
+            <div class="cert">
+                <strong>PNPT</strong> - Practical Network Penetration Tester (2023)
+            </div>
+            <div class="cert">
+                <strong>eJPT</strong> - eLearnSecurity Junior Penetration Tester (2022)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ METHODOLOGY</h2>
+            <p>My approach follows industry standards (PTES, OWASP) and includes:</p>
+            <ul style="margin-left: 30px; margin-top: 10px;">
+                <li>Reconnaissance & OSINT</li>
+                <li>Threat Modeling</li>
+                <li>Vulnerability Analysis</li>
+                <li>Exploitation (Proof of Concept)</li>
+                <li>Post-Exploitation & Lateral Movement</li>
+                <li>Reporting & Remediation Guidance</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>📬 CONTACT</h2>
+            <p>📧 <a href="mailto:your.email@example.com">your.email@example.com</a><br>
+            🐙 <a href="https://github.com/your-username">github.com/your-username</a><br>
+            🔒 PGP Fingerprint: <code style="background:#1a1a1a; padding:2px 5px;">ABCD 1234 EFGH 5678 IJKL 9012 MNOP 3456</code></p>
+            <p style="font-size: 0.85rem; margin-top: 15px;">⚠️ All testing performed on authorized systems only.</p>
+        </div>
+
+        <hr>
+
+        <div style="text-align: center; font-size: 0.8rem; color: #666;">
+            <span>$ echo "Ethical hacking for a safer internet"</span>
+        </div>
+    </div>
+</body>
+</html>

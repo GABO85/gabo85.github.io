@@ -3,87 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Pentester Portfolio</title>
     <style>
-        body {
-            background: #0a0e1a;
-            color: #00ff41;
-            font-family: 'Courier New', monospace;
+        * {
             margin: 0;
-            padding: 20px;
-            min-height: 100vh;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Courier New', monospace;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .terminal {
-            background: #0a0e1a;
-            border: 1px solid #00ff41;
-            padding: 30px;
-            max-width: 800px;
-            width: 90%;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0,255,65,0.2);
+
+        .container {
+            text-align: center;
+            padding: 20px;
         }
-        .prompt {
+
+        /* Simple ASCII logo */
+        .ascii {
             color: #00ff41;
+            font-size: 12px;
+            margin-bottom: 50px;
+            white-space: pre;
+            font-family: monospace;
+            opacity: 0.8;
         }
-        .command {
-            color: #ffaa00;
+
+        /* Button container */
+        .buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
-        .output {
-            color: #ffffff;
-            margin: 10px 0 20px 20px;
-            padding-left: 20px;
-            border-left: 2px solid #00ff41;
-        }
-        .cursor {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        a {
+
+        /* Minimalist buttons */
+        .btn {
+            background: transparent;
+            border: 1.5px solid #00ff41;
             color: #00ff41;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-family: monospace;
+            cursor: pointer;
             text-decoration: none;
-            border-bottom: 1px dotted #00ff41;
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
         }
-        a:hover {
-            color: #ffaa00;
-            border-bottom-color: #ffaa00;
+
+        .btn:hover {
+            background: #00ff41;
+            color: #0a0a0a;
+            transform: translateY(-2px);
         }
-        h1 {
-            color: #00ff41;
-            margin-top: 0;
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #333;
+            font-size: 0.8rem;
+            font-family: monospace;
         }
-        .skill-tag {
-            display: inline-block;
-            background: #1a1f2e;
-            padding: 5px 10px;
-            margin: 5px;
-            border-radius: 4px;
-            font-size: 0.9em;
+
+        /* Mobile responsive */
+        @media (max-width: 600px) {
+            .buttons {
+                gap: 20px;
+                flex-direction: column;
+            }
+            .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            .ascii {
+                font-size: 8px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="terminal">
-        
-        <div class="prompt">$ <span class="command">echo $CONTACT</span></div>
-       
-        <div class="output">            
-            <p>⚡ <span class="cursor">_</span></p>
+    <div class="container">
+        <!-- Simple ASCII art -->
+        <div class="ascii">
+    ╔═══════════════════════════════════════╗
+    ║     P E N T E S T E R   P O R T F O L I O     ║
+    ╚═══════════════════════════════════════╝
+        </div>
+
+        <!-- Two buttons only -->
+        <div class="buttons">
+            <a href="/about" class="btn">📄 ABOUT</a>
+            <a href="/writeups" class="btn">📝 WRITEUPS</a>
+        </div>
+
+        <div class="footer">
+            <span>$ whoami</span> <!-- Just a subtle touch -->
         </div>
     </div>
-
-    <script>
-        // Auto-update the date
-        const dateElement = document.getElementById('date');
-        if (dateElement) {
-            const now = new Date();
-            dateElement.textContent = now.toLocaleString();
-        }
-    </script>
 </body>
 </html>

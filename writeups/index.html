@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writeups | Pentester Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Courier New', monospace;
+            color: #e0e0e0;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            padding: 8px 20px;
+            margin-bottom: 40px;
+            text-decoration: none;
+            font-family: monospace;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #00ff41;
+            color: #0a0a0a;
+        }
+
+        h1 {
+            color: #00ff41;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-family: monospace;
+        }
+
+        .subtitle {
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 0.9rem;
+        }
+
+        /* Writeup card style */
+        .writeup {
+            background: #111;
+            border-left: 3px solid #00ff41;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .writeup:hover {
+            background: #151515;
+            transform: translateX(5px);
+        }
+
+        .writeup-title {
+            color: #00ff41;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-family: monospace;
+        }
+
+        .writeup-meta {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #1a1a1a;
+            padding: 2px 8px;
+            border-radius: 3px;
+            color: #00ff41;
+            font-size: 0.75rem;
+        }
+
+        .writeup-desc {
+            margin: 10px 0;
+            color: #aaa;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: #00ff41;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-family: monospace;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 60px 20px;
+            background: #111;
+            border: 1px dashed #333;
+            color: #666;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #222;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 15px;
+            }
+            .writeup-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-btn">← BACK</a>
+
+        <h1>📝 WRITEUPS</h1>
+        <div class="subtitle">Detailed walkthroughs of CTFs, labs, and real-world findings</div>
+
+        <!-- Example Writeup 1 - Replace with your actual content -->
+        <div class="writeup">
+            <div class="writeup-title">HackTheBox: Cascade</div>
+            <div class="writeup-meta">
+                <span>📅 2024-12-15</span>
+                <span class="tag">Active Directory</span>
+                <span class="tag">Windows</span>
+                <span class="tag">Medium</span>
+		<a href="/writeups/content/cascade-writeup.html" class="read-more">Read full writeup →</a>
+            </div>
+            <div class="writeup-desc">
+                Full AD compromise through LDAP enumeration, password reuse, and privilege escalation via misconfigured service ACLs.
+            </div>
+            <a href="#" class="read-more">Read full writeup →</a>
+        </div>
+
+        <!-- Example Writeup 2 -->
+        <div class="writeup">
+            <div class="writeup-title">Bug Bounty: SSRF to Internal Metadata</div>
+            <div class="writeup-meta">
+                <span>📅 2024-11-20</span>
+                <span class="tag">Web</span>
+                <span class="tag">SSRF</span>
+                <span class="tag">Cloud</span>
+            </div>
+            <div class="writeup-desc">
+                Bypassed URL validation to access AWS metadata endpoint, leading to IAM credential disclosure ($1000 bounty).
+            </div>
+            <a href="#" class="read-more">Read full writeup →</a>
+        </div>
+
+        <!-- Example Writeup 3 -->
+        <div class="writeup">
+            <div class="writeup-title">TryHackMe: Steel Mountain</div>
+            <div class="writeup-meta">
+                <span>📅 2024-10-05</span>
+                <span class="tag">Windows</span>
+                <span class="tag">Reversing</span>
+                <span class="tag">Easy</span>
+            </div>
+            <div class="writeup-desc">
+                Buffer overflow exploitation and Metasploit post-exploitation on Windows Server 2012.
+            </div>
+            <a href="#" class="read-more">Read full writeup →</a>
+        </div>
+
+        <hr>
+
+        <!-- Template for adding new writeups (copy this block) -->
+        <!--
+        <div class="writeup">
+            <div class="writeup-title">Your Writeup Title</div>
+            <div class="writeup-meta">
+                <span>📅 YYYY-MM-DD</span>
+                <span class="tag">Category</span>
+                <span class="tag">Difficulty</span>
+            </div>
+            <div class="writeup-desc">
+                Brief description of what you did and learned.
+            </div>
+            <a href="link-to-full-writeup.md" class="read-more">Read full writeup →</a>
+        </div>
+        -->
+
+        <div style="text-align: center; margin-top: 40px; font-size: 0.8rem; color: #666;">
+            <span>⚠️ All writeups are for educational purposes on authorized systems only.</span>
+        </div>
+    </div>
+</body>
+</html>

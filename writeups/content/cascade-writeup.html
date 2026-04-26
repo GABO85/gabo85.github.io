@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascade Writeup | Pentester Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0a0a0a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Courier New', monospace;
+            color: #e0e0e0;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .back-link {
+            display: inline-block;
+            color: #00ff41;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-family: monospace;
+        }
+        h1 {
+            color: #00ff41;
+            margin-bottom: 20px;
+        }
+        pre {
+            background: #111;
+            padding: 15px;
+            overflow-x: auto;
+            border-left: 3px solid #00ff41;
+            margin: 20px 0;
+            font-size: 0.85rem;
+        }
+        code {
+            background: #111;
+            padding: 2px 5px;
+            font-family: monospace;
+        }
+        @media (max-width: 600px) {
+            body { padding: 20px 15px; }
+            pre { font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/writeups" class="back-link">← Back to Writeups</a>
+        
+        <h1>HackTheBox: Cascade Writeup</h1>
+        
+        <h2>Reconnaissance</h2>
+        <p>Initial nmap scan revealed open ports...</p>
+        <pre>nmap -sC -sV -p- 10.10.10.182</pre>
+        
+        <h2>Enumeration</h2>
+        <p>LDAP enumeration revealed...</p>
+        
+        <h2>Exploitation</h2>
+        <p>Using Impacket to...</p>
+        
+        <h2>Privilege Escalation</h2>
+        <p>Found password reuse leading to...</p>
+        
+        <h2>Lessons Learned</h2>
+        <p>Key takeaways from this machine...</p>
+        
+        <hr>
+        <p style="font-size:0.8rem; color:#666;">Posted: 2024-12-15 | Category: Active Directory</p>
+    </div>
+</body>
+</html>
