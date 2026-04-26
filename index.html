@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pentester Portfolio | Hello World</title>
+    <style>
+        body {
+            background: #0a0e1a;
+            color: #00ff41;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .terminal {
+            background: #0a0e1a;
+            border: 1px solid #00ff41;
+            padding: 30px;
+            max-width: 800px;
+            width: 90%;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,255,65,0.2);
+        }
+        .prompt {
+            color: #00ff41;
+        }
+        .command {
+            color: #ffaa00;
+        }
+        .output {
+            color: #ffffff;
+            margin: 10px 0 20px 20px;
+            padding-left: 20px;
+            border-left: 2px solid #00ff41;
+        }
+        .cursor {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        a {
+            color: #00ff41;
+            text-decoration: none;
+            border-bottom: 1px dotted #00ff41;
+        }
+        a:hover {
+            color: #ffaa00;
+            border-bottom-color: #ffaa00;
+        }
+        h1 {
+            color: #00ff41;
+            margin-top: 0;
+        }
+        .skill-tag {
+            display: inline-block;
+            background: #1a1f2e;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="prompt">$ <span class="command">whoami</span></div>
+        <div class="output">
+            <h1>🔐 Security Researcher & Pentester</h1>
+            <p><strong>Hello World!</strong> Welcome to my digital workspace.</p>
+        </div>
+
+        <div class="prompt">$ <span class="command">cat about.me</span></div>
+        <div class="output">
+            <p>👋 I'm [Your Name] – an ethical hacker and penetration tester.</p>
+            <p>📍 Based in [Your Location] | 🎯 OSCP in progress | 🐧 Fedora user</p>
+        </div>
+
+        <div class="prompt">$ <span class="command">ls -la skills/</span></div>
+        <div class="output">
+            <div class="skill-tag">🔍 Network Pentesting</div>
+            <div class="skill-tag">🌐 Web App Security</div>
+            <div class="skill-tag">🏢 Active Directory</div>
+            <div class="skill-tag">🐍 Python Scripting</div>
+            <div class="skill-tag">🔧 Burp Suite</div>
+            <div class="skill-tag">📡 Nmap</div>
+        </div>
+
+        <div class="prompt">$ <span class="command">git log --oneline | head -3</span></div>
+        <div class="output">
+            <p>📅 <strong>Latest milestone:</strong> Hello World deployment</p>
+            <p>🎯 <strong>Current goal:</strong> Build comprehensive pentest portfolio</p>
+            <p>📊 <strong>Active:</strong> HTB machines | Bug bounty programs</p>
+        </div>
+
+        <div class="prompt">$ <span class="command">echo $CONTACT</span></div>
+        <div class="output">
+            <p>📧 Email: <a href="mailto:your.email@example.com">your.email@example.com</a><br>
+            🐙 GitHub: <a href="https://github.com/your-username">github.com/your-username</a><br>
+            💼 LinkedIn: <a href="#">linkedin.com/in/your-profile</a></p>
+        </div>
+
+        <div class="prompt">$ <span class="command">./deploy_portfolio.sh</span></div>
+        <div class="output">
+            <p>✅ Portfolio status: <strong>ACTIVE</strong></p>
+            <p>🔄 Last updated: <span id="date"></span></p>
+            <p>⚡ <span class="cursor">_</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Auto-update the date
+        const dateElement = document.getElementById('date');
+        if (dateElement) {
+            const now = new Date();
+            dateElement.textContent = now.toLocaleString();
+        }
+    </script>
+</body>
+</html>
