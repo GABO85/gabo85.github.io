@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Writeups | Pentester Portfolio</title>
+    <title>Writeups</title>
     <style>
         * {
             margin: 0;
@@ -58,9 +58,9 @@
         /* Writeup card style */
         .writeup {
             background: #111;
-            border-left: 3px solid #00ff41;
-            padding: 20px;
-            margin-bottom: 20px;
+            border-left: 1.5px solid #00ff41;
+            padding: 10px;
+            margin-bottom: 10px;
             transition: all 0.3s ease;
         }
 
@@ -71,13 +71,13 @@
 
         .writeup-title {
             color: #00ff41;
-            font-size: 1.3rem;
+            font-size: 1.8rem;
             margin-bottom: 10px;
             font-family: monospace;
         }
 
         .writeup-meta {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: #666;
             margin-bottom: 10px;
             display: flex;
@@ -139,42 +139,36 @@
     <div class="container">
         <a href="/" class="back-btn">← BACK</a>
 
-        <h1>📝 WRITEUPS</h1>
-        <div class="subtitle">Detailed walkthroughs of CTFs, labs, and real-world findings</div>
+        <h1>WRITEUPS</h1>
+	<!--<div class="subtitle">Detailed walkthroughs of CTFs, labs, and real-world findings</div>-->
 
         <!-- Example Writeup 1 - Replace with your actual content -->
         <div class="writeup">
-            <div class="writeup-title">HackTheBox: Cascade</div>
+		<!--<div class="writeup-title">Github secrets: an aproach to this vector at scale</div>-->
             <div class="writeup-meta">
-                <span>📅 2024-12-15</span>
-                <span class="tag">Active Directory</span>
-                <span class="tag">Windows</span>
-                <span class="tag">Medium</span>
-		<a href="/writeups/content/cascade-writeup.html" class="read-more">Read full writeup →</a>
+		    <a href="/writeups/content/cascade-writeup.html" class="read-more">Github secrets: an aproach to this vector at scale</a>
             </div>
+            <!--<div class="writeup-desc">
+                Full AD compromise through LDAP enumeration, password reuse, and privilege escalation via misconfigured service ACLs.
+	    </div>-->
+	    <!--<a href="#" class="read-more">Read full writeup →</a>-->
+	</div>
+
+        <!-- Example Writeup 2 -->
+	<!--<div class="writeup">-->
+                <!--<div class="writeup-title">Github secrets: an aproach to this vector at scale</div>
+            <div class="writeup-meta">
+                    <a href="/writeups/content/cascade-writeup.html" class="read-more">Github secrets: an aproach to this vector at scale</a>
+	    </div>
             <div class="writeup-desc">
                 Full AD compromise through LDAP enumeration, password reuse, and privilege escalation via misconfigured service ACLs.
             </div>
             <a href="#" class="read-more">Read full writeup →</a>
-        </div>
+	</div>-->
 
-        <!-- Example Writeup 2 -->
-        <div class="writeup">
-            <div class="writeup-title">Bug Bounty: SSRF to Internal Metadata</div>
-            <div class="writeup-meta">
-                <span>📅 2024-11-20</span>
-                <span class="tag">Web</span>
-                <span class="tag">SSRF</span>
-                <span class="tag">Cloud</span>
-            </div>
-            <div class="writeup-desc">
-                Bypassed URL validation to access AWS metadata endpoint, leading to IAM credential disclosure ($1000 bounty).
-            </div>
-            <a href="#" class="read-more">Read full writeup →</a>
-        </div>
 
         <!-- Example Writeup 3 -->
-        <div class="writeup">
+        <!--<div class="writeup">
             <div class="writeup-title">TryHackMe: Steel Mountain</div>
             <div class="writeup-meta">
                 <span>📅 2024-10-05</span>
@@ -186,7 +180,7 @@
                 Buffer overflow exploitation and Metasploit post-exploitation on Windows Server 2012.
             </div>
             <a href="#" class="read-more">Read full writeup →</a>
-        </div>
+	</div>-->
 
         <hr>
 
@@ -207,7 +201,7 @@
         -->
 
         <div style="text-align: center; margin-top: 40px; font-size: 0.8rem; color: #666;">
-            <span>⚠️ All writeups are for educational purposes on authorized systems only.</span>
+            <span>For educational purposes  only.</span>
         </div>
     </div>
 </body>
