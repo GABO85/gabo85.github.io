@@ -49,6 +49,16 @@
             body { padding: 20px 15px; }
             pre { font-size: 0.7rem; }
         }
+	a {
+	    font-family: monospace;
+	    color: #00ff51
+	}
+
+	b {
+            font-family: monospace;
+            color: #00ff51
+        }
+
     </style>
 </head>
 <body>
@@ -66,30 +76,35 @@
 
         
         <h2>⏵ Exploring github</h2>
-        <p>The (gh) client becomes helpful for this task, using it i could grab every repository owned by a company:
+        <p>The <a href="https://cli.github.com/manual/gh_api" target="_blank" title="gh-client">gh</a> client becomes helpful for this task, using it i could grab every repository owned by a company:
 	<br><br>~ gh api "orgs/company/repos?per_page=100" --paginate --jq '.[].html_url'
-	<br><br>The idea of this exercise was to explore a wide number of companies which allows external actors to explore its assets.
-Previously i saved a txt file with a list of programs which achieve the previous condition.
+	<br><br>The idea of this exercise was to explore a wide number of companies with open bb programs.
+Previously i saved a txt file with a <a href="https://raw.githubusercontent.com/GABO85/bb-programs/refs/heads/main/bbp.txt" target="_blank" title="List of bb programs">list of programs</a> which achieve the previous condition.
 And got each repo using this.
 	<br><br>~ for x in `cat companies.txt`; do gh api "orgs/$x/repos?per_page=100" --paginate --jq '.[].html_url';done| tee repos.txt
-	<br><br>I ended up with a file called repos.txt which inside had 30821 repositories.
-Now to explore each one (trufflehog) it's a great tool to achieve this. It covers a wide spectrum of tokens, and has  the option to validete if a secret found is still active or not, this will return only valid results ready to report to the owners.
+	<br><br>I ended up with a file called repos.txt with 30821 repositories inside.
+Now to explore each one <a href="https://github.com/trufflesecurity/trufflehog" target="_blank" title="TRUFFELHOG">trufflehog</a> it's a great tool to achieve this. It covers a wide spectrum of tokens, and has  the option to validete if a secret found is still active or not, this will return only valid results ready to report to the owners.
 	<br><br>~ for z in `cat repos.txt`; do trufflehog --no-update --results=verified github --repo=$z  --json --token=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx;done | tee result.json
-	<br><br> With the flag (--results=verified) only the active tokens will be saved, also the command needs the ghp token to works, you can get one from you github account.
+	<br><br> With the flag (--results=verified) only the active tokens will be saved, also the command needs the ghp token to works, you can get one from you github account here (<a href="https://github.com/settings/credentials" target="_blank" title="get ghp token">https://github.com/settings/credentials</a>).
 	<br><br><br>
 	</p>
         
         <h2>⏵ Results</h2>
-        <p>The json file with the secrets found by trufflehog, can be explored using (jq):
-	<br><br>* Returns every kind of token found (Algolia, AWS, data base credentials, etc...):
+        <p>The json file with the secrets found by trufflehog, can be explored using <a href="https://jqlang.org/tutorial/" target="_blank" title="jq">jq</a>:
+	<br><br>● Get every kind of token found (Algolia, AWS, data base credentials, etc...):
 	<br>~ cat result.json | jq -r '.DetectorName'
-	<br><br>* Returns (Repo, commit, file, detector name, description), based on the kind of token:
-	<br>~ cat result.json | jq -r 'select(.DetectorName == "AlgoliaAdminKey")'| jq -r [.SourceMetadata.Data.Github.repository,.SourceMetadata.Data.Github.commit,.SourceMetadata.Data.Github.file,.DetectorName,.DetectorDescription]
-	<br>
+	<br><br>● Get (Repo, commit, file, detector name, description), based on the kind of token:
+	<br>~ cat result.json | jq -r 'select(.DetectorName == "AlgoliaAdminKey")'| jq -r [.SourceMetadata.Data.Github.repository,<br>.SourceMetadata.Data.Github.commit,.SourceMetadata.Data.Github.file,.DetectorName,<br>.DetectorDescription]
+	<br><br>● At this point  i had a list of assets ready to explore. Using the commit and file returned, was simple extract the secret found:
+	<br> ~ git clone --mirror https://github.com/company/repo
+	<br> ~ git --git-dir=repo.git show "commit:file"| tee secret.txt
+	<br> Inside secret.txt, there was the token or key found, ready to report to its rightful owner.
 	</p>
-        
-        <h2>Lessons Learned</h2>
-        <p>Key takeaways from this machine...</p>
+	<br><br>
+        <h2>⏵ Lessons learned</h2>
+        <p>If you are part of a security team, applying this methodology won't take too much time and will help to secure your infrastructure.
+	<br>As an example the tokens found were (Alchemy, GitHubOauth2, Infura, IPinfoDB, etc)</p>
+	<br><br><br>
         
         <hr>
         <p style="font-size:0.8rem; color:#666;">Posted: 2026-sept</p>
