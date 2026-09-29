@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cascade Writeup | Pentester Portfolio</title>
+    <title>Writeup -1</title>
     <style>
         * {
             margin: 0;
@@ -55,26 +55,44 @@
     <div class="container">
         <a href="/writeups" class="back-link">← Back to Writeups</a>
         
-        <h1>HackTheBox: Cascade Writeup</h1>
+        <h1>Github secrets: an approach to this vector at scale</h1>
         
-        <h2>Reconnaissance</h2>
-        <p>Initial nmap scan revealed open ports...</p>
-        <pre>nmap -sC -sV -p- 10.10.10.182</pre>
+	<!--<h2>Reconnaissance</h2>-->
+	<!--<p>Initial nmap scan revealed open ports...</p>-->
+	<!--<pre>nmap -sC -sV -p- 10.10.10.182</pre>-->
         
-        <h2>Enumeration</h2>
-        <p>LDAP enumeration revealed...</p>
+        <h2>⏵ The problem.</h2>
+	<p>Companies by mistake can leave passwords or tokens in its repositories, this become an attack vector for their CI/CD flow.<br><br><br></p>
+
         
-        <h2>Exploitation</h2>
-        <p>Using Impacket to...</p>
+        <h2>⏵ Exploring github</h2>
+        <p>The (gh) client becomes helpful for this task, using it i could grab every repository owned by a company:
+	<br><br>~ gh api "orgs/company/repos?per_page=100" --paginate --jq '.[].html_url'
+	<br><br>The idea of this exercise was to explore a wide number of companies which allows external actors to explore its assets.
+Previously i saved a txt file with a list of programs which achieve the previous condition.
+And got each repo using this.
+	<br><br>~ for x in `cat companies.txt`; do gh api "orgs/$x/repos?per_page=100" --paginate --jq '.[].html_url';done| tee repos.txt
+	<br><br>I ended up with a file called repos.txt which inside had 30821 repositories.
+Now to explore each one (trufflehog) it's a great tool to achieve this. It covers a wide spectrum of tokens, and has  the option to validete if a secret found is still active or not, this will return only valid results ready to report to the owners.
+	<br><br>~ for z in `cat repos.txt`; do trufflehog --no-update --results=verified github --repo=$z  --json --token=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx;done | tee result.json
+	<br><br> With the flag (--results=verified) only the active tokens will be saved, also the command needs the ghp token to works, you can get one from you github account.
+	<br><br><br>
+	</p>
         
-        <h2>Privilege Escalation</h2>
-        <p>Found password reuse leading to...</p>
+        <h2>⏵ Results</h2>
+        <p>The json file with the secrets found by trufflehog, can be explored using (jq):
+	<br><br>* Returns every kind of token found (Algolia, AWS, data base credentials, etc...):
+	<br>~ cat result.json | jq -r '.DetectorName'
+	<br><br>* Returns (Repo, commit, file, detector name, description), based on the kind of token:
+	<br>~ cat result.json | jq -r 'select(.DetectorName == "AlgoliaAdminKey")'| jq -r [.SourceMetadata.Data.Github.repository,.SourceMetadata.Data.Github.commit,.SourceMetadata.Data.Github.file,.DetectorName,.DetectorDescription]
+	<br>
+	</p>
         
         <h2>Lessons Learned</h2>
         <p>Key takeaways from this machine...</p>
         
         <hr>
-        <p style="font-size:0.8rem; color:#666;">Posted: 2024-12-15 | Category: Active Directory</p>
+        <p style="font-size:0.8rem; color:#666;">Posted: 2026-sept</p>
     </div>
 </body>
 </html>
